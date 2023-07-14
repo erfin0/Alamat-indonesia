@@ -30,6 +30,14 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('provinsi/(:num)/kabupaten/(:num)/kecamatan/(:num)/kelurahan', 'Wilayah::Kelurahan/$1/$2/$3');
+$routes->get('provinsi/(:num)/kabupaten/(:num)/kecamatan/(:num)', 'Wilayah::Kecamatan/$1/$2/$3');
+$routes->get('provinsi/(:num)/kabupaten/(:num)/kecamatan', 'Wilayah::Kecamatan/$1/$2');
+$routes->get('provinsi/(:num)/kabupaten/(:num)', 'Wilayah::Kabupaten/$1/$2');
+$routes->get('provinsi/(:num)/kabupaten', 'Wilayah::Kabupaten/$1');
+$routes->get('provinsi/(:num)', 'Wilayah::Provinsi/$1');
+$routes->get('provinsi', 'Wilayah::Provinsi');
+
 
 /*
  * --------------------------------------------------------------------
